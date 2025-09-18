@@ -1,5 +1,6 @@
 package com.johnnyconsole.android.senvote
 
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom)
                 insets
             }
-
+            appBar.activityTitle.text = getString(R.string.activity_title, "Sign In")
             btSignIn.setOnClickListener {_ ->
                 if(etUsername.text.isNullOrBlank() || etPassword.text.isNullOrBlank())
                     return@setOnClickListener

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <include layout="@layout/layout_appbar"/>
+    <include layout="@layout/layout_appbar" android:id="@+id/appBar"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
