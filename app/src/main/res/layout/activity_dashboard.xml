@@ -9,4 +9,133 @@
 
     <include layout="@layout/layout_appbar" android:id="@+id/appBar"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btSignOut"
+        android:text="@string/sign_out"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/transparent"
+        android:textColor="@color/primary_dark"
+        android:drawableLeft="@drawable/ic_arrow_left"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/btSignOut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvHeader"
+            android:layout_marginStart="10dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvInactiveWarning"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:padding="13dp"
+            android:layout_margin="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@drawable/dr_warning"
+            android:textAlignment="center" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="1"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/btDivisionList"
+                android:layout_columnWeight="1"
+                android:text="@string/division_list"
+                android:backgroundTint="@color/primary_dark"
+                android:layout_marginEnd="5dp"/>
+
+            <Button
+                android:id="@+id/btActiveDivisions"
+                android:layout_columnWeight="1"
+                android:text="@string/active_divisions"
+                android:backgroundTint="@color/primary_dark"/>
+        </GridLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/llAdmin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/admin_list"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="1"
+                android:layout_margin="10dp">
+
+                <Button
+                    android:id="@+id/btAddUser"
+                    android:layout_columnWeight="1"
+                    android:text="@string/add_user"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btEditUser"
+                    android:layout_columnWeight="1"
+                    android:text="@string/edit_user"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btDeleteUser"
+                    android:layout_columnWeight="1"
+                    android:text="@string/delete_user"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btCreateDivision"
+                    android:layout_columnWeight="1"
+                    android:text="@string/add_division"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btEditDivision"
+                    android:layout_columnWeight="1"
+                    android:text="@string/edit_division"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btDeleteDivision"
+                    android:layout_columnWeight="1"
+                    android:text="@string/delete_division"
+                    android:backgroundTint="@color/primary_dark"
+                    android:layout_margin="5dp"/>
+
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
