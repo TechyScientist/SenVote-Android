@@ -17,6 +17,9 @@ import javax.net.ssl.HostnameVerifier
 import javax.net.ssl.HttpsURLConnection
 import android.view.View.VISIBLE
 import android.view.View.INVISIBLE
+import com.google.android.material.snackbar.Snackbar
+import com.johnnyconsole.android.senvote.session.UserSession
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
@@ -80,9 +83,28 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun parseResponseString(response: String) {
-        //TODO: Parse the response string and store values locally for user session
         Log.d("SignInResponse", response)
-        //TODO: Conditionally start this activity based on the parsed result values -- Testing only
-        startActivity(Intent(this, DashboardActivity::class.java))
+        val json = JSONObject(response)
+        val status = json.getInt("status")
+        if(status == 200) {
+            val user = json.getJSONObject("user")
+            UserSession.construct(
+                user.getString("username"),
+                user.getString("name"),
+                user.getInt("access"),
+                user.getBoolean("active")
+            )
+            binding.etUsername.text.clear()
+            binding.etPassword.text.clear()
+            startActivity(Intent(this, DashboardActivity::class.java))
+        }
+        else {
+            val warning = Snackbar.make(binding.root,
+                getString(R.string.error, status, json.getString("message")),
+                Snackbar.LENGTH_INDEFINITE)
+            warning.setAction(R.string.dismiss) {_ -> warning.dismiss()}
+                .setActionTextColor(getColor(R.color.primary))
+                .show()
+        }
     }
 }
