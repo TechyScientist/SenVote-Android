@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#FFF0D4D5</color>
     <color name="primary_dark">#FFB3282D</color>
+    <color name="success">#FF006400</color>
+    <color name="warning">#FFE6B848</color>
+    <color name="error">#FF8b0000</color>
 </resources>
