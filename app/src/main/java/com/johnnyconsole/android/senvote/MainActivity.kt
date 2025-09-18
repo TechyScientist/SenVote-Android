@@ -82,5 +82,7 @@ class MainActivity : AppCompatActivity() {
     private fun parseResponseString(response: String) {
         //TODO: Parse the response string and store values locally for user session
         Log.d("SignInResponse", response)
+        //TODO: Conditionally start this activity based on the parsed result values -- Testing only
+        startActivity(Intent(this, DashboardActivity::class.java))
     }
 }
