@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.johnnyconsole.android.senvote.databinding.ActivityDashboardBinding
+import com.johnnyconsole.android.senvote.session.UserSession
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
+import androidx.core.text.HtmlCompat
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -23,6 +27,22 @@ class DashboardActivity : AppCompatActivity() {
                 insets
             })
             appBar.activityTitle.text = getString(R.string.activity_title, "Dashboard")
+
+            tvHeader.text = getString(R.string.dashboard_header, UserSession.name!!)
+
+            if(UserSession.access != 1) llAdmin.visibility = INVISIBLE
+            if(!UserSession.active) {
+                tvInactiveWarning.text = HtmlCompat.fromHtml(getString(R.string.inactive_warning,
+                    if(UserSession.access != 1) "." else " or perform any administrative functions."), HtmlCompat.FROM_HTML_MODE_LEGACY)
+                btActiveDivisions.visibility = INVISIBLE
+                tvInactiveWarning.visibility = VISIBLE
+                llAdmin.visibility = INVISIBLE
+            }
+
+            btSignOut.setOnClickListener { _ ->
+                UserSession.destroy()
+                finish()
+            }
         }
     }
 }
