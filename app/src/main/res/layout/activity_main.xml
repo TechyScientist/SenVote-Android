@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/layout_appbar"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/llSignIn"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/username"
+            android:labelFor="@id/etUsername"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/etUsername"
+            android:ems="15"
+            android:layout_marginBottom="20dp"
+            android:inputType="text"
+            android:autofillHints="username"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:labelFor="@id/etPassword"
+            android:text="@string/password"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/etPassword"
+            android:ems="15"
+            android:layout_marginBottom="20dp"
+            android:inputType="textPassword"
+            android:autofillHints="password"/>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btSignIn"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/sign_in"
+            android:background="@android:color/transparent"
+            android:textColor="@color/primary_dark"
+            android:drawableEnd="@drawable/ic_arrow_right"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pbIndicator"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        app:layout_constraintTop_toBottomOf="@id/llSignIn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
