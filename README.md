@@ -1,2 +1,2 @@
-# IMS-Android
-An inventory management system built as a native Android app
+# SenVote-Android
+A native android app that interfaces with the RESTful component of [SenVote-Base](https://github.com/TechyScientist/SenVote-Base)
