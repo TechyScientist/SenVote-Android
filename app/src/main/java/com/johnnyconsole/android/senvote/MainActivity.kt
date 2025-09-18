@@ -2,6 +2,7 @@ package com.johnnyconsole.android.senvote
 
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -20,15 +21,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private inner class SignInTask: AsyncTask<String, Unit, Unit>() {
-        private var response = StringBuffer()
+    private inner class SignInTask: AsyncTask<String, Unit, String>() {
 
         override fun onPreExecute() {
             super.onPreExecute()
             binding.pbIndicator.visibility = VISIBLE
         }
 
-        override fun doInBackground(vararg params: String): Unit {
+        override fun doInBackground(vararg params: String): String {
             val conn = (URL("https://wildfly.johnnyconsole.com:8443/senvote-restful/api/user/signin").openConnection()) as HttpsURLConnection
             conn.requestMethod = "POST"
             conn.hostnameVerifier = HostnameVerifier { _, _ -> true }
@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
                 close()
             }
             conn.connect()
+            val response = StringBuffer()
 
             if(conn.responseCode == HTTP_OK) {
                 val reader = BufferedReader(InputStreamReader(conn.inputStream))
@@ -46,11 +47,13 @@ class MainActivity : AppCompatActivity() {
                     response.append(line)
                 }
             }
+            return response.toString()
         }
 
-        override fun onPostExecute(result: Unit?) {
+        override fun onPostExecute(result: String) {
             super.onPostExecute(result)
             binding.pbIndicator.visibility = INVISIBLE
+            parseResponseString(result)
         }
     }
 
@@ -73,5 +76,10 @@ class MainActivity : AppCompatActivity() {
                 SignInTask().execute(etUsername.text.toString().lowercase(), etPassword.text.toString())
             }
         }
+    }
+
+    private fun parseResponseString(response: String) {
+        //TODO: Parse the response string and store values locally for user session
+        Log.d("SignInResponse", response)
     }
 }
