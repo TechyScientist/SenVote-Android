@@ -104,6 +104,7 @@ class MainActivity : AppCompatActivity() {
             binding.tvErrorMessage.text = HtmlCompat.fromHtml(
                 getString(R.string.error,
                     status,
+                    json.getString("category"),
                     json.getString("message")
                 ), HtmlCompat.FROM_HTML_MODE_LEGACY)
             binding.tvErrorMessage.visibility = VISIBLE
