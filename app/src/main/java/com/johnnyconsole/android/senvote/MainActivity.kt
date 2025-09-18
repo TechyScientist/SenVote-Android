@@ -17,7 +17,8 @@ import javax.net.ssl.HostnameVerifier
 import javax.net.ssl.HttpsURLConnection
 import android.view.View.VISIBLE
 import android.view.View.INVISIBLE
-import com.google.android.material.snackbar.Snackbar
+import android.view.View.GONE
+import androidx.core.text.HtmlCompat
 import com.johnnyconsole.android.senvote.session.UserSession
 import org.json.JSONObject
 
@@ -87,6 +88,7 @@ class MainActivity : AppCompatActivity() {
         val json = JSONObject(response)
         val status = json.getInt("status")
         if(status == 200) {
+            binding.tvErrorMessage.visibility = GONE
             val user = json.getJSONObject("user")
             UserSession.construct(
                 user.getString("username"),
@@ -99,12 +101,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, DashboardActivity::class.java))
         }
         else {
-            val warning = Snackbar.make(binding.root,
-                getString(R.string.error, status, json.getString("message")),
-                Snackbar.LENGTH_INDEFINITE)
-            warning.setAction(R.string.dismiss) {_ -> warning.dismiss()}
-                .setActionTextColor(getColor(R.color.primary))
-                .show()
+            binding.tvErrorMessage.text = HtmlCompat.fromHtml(
+                getString(R.string.error,
+                    status,
+                    json.getString("message")
+                ), HtmlCompat.FROM_HTML_MODE_LEGACY)
+            binding.tvErrorMessage.visibility = VISIBLE
         }
     }
 }
