@@ -6,4 +6,17 @@
     <string name="sign_in">Sign In</string>
     <string name="error">Error %1$d: %2$s</string>
     <string name="dismiss">Dismiss</string>
+
+    <string name="dashboard_header">Welcome to SenVote, %1$s!</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="inactive_warning"><![CDATA[<b>Warning</b>: Your account is labelled as <b>inactive</b>. You will not be able to participate in any active divisions%1$s]]></string>
+    <string name="division_list">View Division List</string>
+    <string name="active_divisions">View Active Divisions</string>
+    <string name="admin_list">SenVote Administration</string>
+    <string name="add_user">Add a User</string>
+    <string name="edit_user">Edit an Existing User</string>
+    <string name="delete_user">Delete an Existing User</string>
+    <string name="add_division">Add a Division</string>
+    <string name="edit_division">Edit an Existing Division</string>
+    <string name="delete_division">Delete an Existing Division</string>
 </resources>
