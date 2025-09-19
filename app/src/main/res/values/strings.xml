@@ -5,6 +5,7 @@
     <string name="password">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="error"><![CDATA[<b>Error %1$d (%2$s)</b>: %3$s]]></string>
+    <string name="success"><![CDATA[<b>Success:</b>: %1$s]]></string>
     <string name="dismiss">Dismiss</string>
 
     <string name="dashboard_header">Welcome to SenVote, %1$s!</string>
@@ -19,4 +20,18 @@
     <string name="add_division">Add a Division</string>
     <string name="edit_division">Edit an Existing Division</string>
     <string name="delete_division">Delete an Existing Division</string>
+
+    <string name="name">Name:</string>
+    <string name="confirm">Confirm Password:</string>
+    <string name="access">Access Level:</string>
+    <string name="active">Account Status:</string>
+    <string name="add_user2">Add User</string>
+    <string-array name="access_list">
+        <item>Standard User</item>
+        <item>Administrative User</item>
+    </string-array>
+    <string-array name="status_list">
+        <item>Active</item>
+        <item>Inactive</item>
+    </string-array>
 </resources>

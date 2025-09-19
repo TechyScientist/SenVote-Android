@@ -9,6 +9,149 @@
 
     <include layout="@layout/layout_appbar" android:id="@+id/appBar"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMessage"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:padding="13dp"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/appBar"/>
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/svForm"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/username"
+                android:labelFor="@id/etUsername"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/etUsername"
+                android:ems="15"
+                android:layout_marginBottom="20dp"
+                android:inputType="text"
+                android:autofillHints="username"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/name"
+                android:labelFor="@id/etName"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/etName"
+                android:ems="15"
+                android:layout_marginBottom="20dp"
+                android:inputType="text"
+                android:autofillHints="name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:labelFor="@id/etPassword"
+                android:text="@string/password"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/etPassword"
+                android:ems="15"
+                android:layout_marginBottom="20dp"
+                android:inputType="textPassword"
+                android:autofillHints="password"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:labelFor="@id/etConfirm"
+                android:text="@string/confirm"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:id="@+id/etConfirm"
+                android:ems="15"
+                android:layout_marginBottom="20dp"
+                android:inputType="textPassword"
+                android:autofillHints="password"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:labelFor="@id/spAccess"
+                android:text="@string/access"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/spAccess"
+                android:layout_marginBottom="20dp"
+                android:entries="@array/access_list"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:labelFor="@id/spStatus"
+                android:text="@string/active"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:id="@+id/spStatus"
+                android:layout_marginBottom="20dp"
+                android:entries="@array/status_list"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btSignIn"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/add_user2"
+                android:background="@android:color/transparent"
+                android:textColor="@color/primary_dark"
+                android:drawableEnd="@drawable/ic_arrow_right"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pbIndicator"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
