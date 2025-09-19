@@ -1,6 +1,7 @@
 package com.johnnyconsole.android.senvote
 
 import android.content.Intent
+import android.os.AsyncTask
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -47,6 +48,10 @@ class DashboardActivity : AppCompatActivity() {
 
             btAddUser.setOnClickListener {_ ->
                 startActivity(Intent(this@DashboardActivity, AddUserActivity::class.java))
+            }
+
+            btDeleteUser.setOnClickListener { _ ->
+                startActivity(Intent(this@DashboardActivity, DeleteUserActivity::class.java))
             }
         }
     }
