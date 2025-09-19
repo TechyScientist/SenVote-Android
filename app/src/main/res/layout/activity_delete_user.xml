@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DeleteUserActivity">
+
+    <include layout="@layout/layout_appbar" android:id="@+id/appBar"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btDashboard"
+        android:text="@string/to_dashboard"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/transparent"
+        android:textColor="@color/primary_dark"
+        android:drawableLeft="@drawable/ic_arrow_left"
+        app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvDeleteWarning"
+        android:textColor="@color/black"
+        android:padding="13dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/dr_warning"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/btDashboard"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMessage"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:padding="13dp"
+        android:layout_margin="10dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/tvDeleteWarning"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tvMessage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:labelFor="@id/spStatus"
+            android:text="@string/user_to_delete"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:id="@+id/spUserList"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btAddUser"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/delete_user2"
+            android:background="@android:color/transparent"
+            android:textColor="@color/primary_dark"
+            android:drawableEnd="@drawable/ic_arrow_right"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pbIndicator"
+        android:visibility="invisible"
+        android:indeterminate="true"
+        app:layout_constraintTop_toTopOf="@id/btDashboard"
+        app:layout_constraintBottom_toBottomOf="@id/btDashboard"
+        app:layout_constraintStart_toEndOf="@id/btDashboard"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
