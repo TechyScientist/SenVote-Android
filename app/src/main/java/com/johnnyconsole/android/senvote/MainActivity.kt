@@ -25,6 +25,7 @@ import org.json.JSONObject
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private var pressed = false
 
     private inner class SignInTask: AsyncTask<String, Unit, String>() {
 
@@ -76,8 +77,9 @@ class MainActivity : AppCompatActivity() {
             }
             appBar.activityTitle.text = getString(R.string.activity_title, "Sign In")
             btSignIn.setOnClickListener {_ ->
-                if(etUsername.text.isNullOrBlank() || etPassword.text.isNullOrBlank())
+                if(pressed || etUsername.text.isNullOrBlank() || etPassword.text.isNullOrBlank())
                     return@setOnClickListener
+                pressed = true
                 SignInTask().execute(etUsername.text.toString().lowercase(), etPassword.text.toString())
             }
         }
@@ -100,6 +102,7 @@ class MainActivity : AppCompatActivity() {
             binding.etPassword.text.clear()
             binding.etUsername.requestFocus()
             startActivity(Intent(this, DashboardActivity::class.java))
+            pressed = false
         }
         else {
             binding.tvErrorMessage.text = HtmlCompat.fromHtml(
