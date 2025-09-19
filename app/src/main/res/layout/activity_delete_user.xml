@@ -73,7 +73,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btAddUser"
+            android:id="@+id/btDeleteUser"
             android:layout_gravity="center_horizontal"
             android:text="@string/delete_user2"
             android:background="@android:color/transparent"
