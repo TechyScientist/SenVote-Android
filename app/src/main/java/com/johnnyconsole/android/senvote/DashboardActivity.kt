@@ -1,5 +1,6 @@
 package com.johnnyconsole.android.senvote
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -42,6 +43,10 @@ class DashboardActivity : AppCompatActivity() {
             btSignOut.setOnClickListener { _ ->
                 UserSession.destroy()
                 finish()
+            }
+
+            btAddUser.setOnClickListener {_ ->
+                startActivity(Intent(this@DashboardActivity, AddUserActivity::class.java))
             }
         }
     }
