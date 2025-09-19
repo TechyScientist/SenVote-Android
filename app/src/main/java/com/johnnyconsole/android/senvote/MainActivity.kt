@@ -98,6 +98,7 @@ class MainActivity : AppCompatActivity() {
             )
             binding.etUsername.text.clear()
             binding.etPassword.text.clear()
+            binding.etUsername.requestFocus()
             startActivity(Intent(this, DashboardActivity::class.java))
         }
         else {
