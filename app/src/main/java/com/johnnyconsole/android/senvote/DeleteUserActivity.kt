@@ -71,7 +71,6 @@ class DeleteUserActivity : AppCompatActivity() {
             }
 
             binding.spUserList.adapter = UserListAdapter(usernames)
-            binding.spUserList.adapter
         }
     }
 
