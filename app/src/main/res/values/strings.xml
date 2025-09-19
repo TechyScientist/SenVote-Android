@@ -39,5 +39,8 @@
     <string name="delete_warning"><![CDATA[<b>Warning</b>: Deleting a SenVote account is permanent and cannot be undone. All votes made by the account being deleted will be removed from SenVote.]]></string>
     <string name="user_to_delete">User to Delete:</string>
     <string name="delete_user2">Delete User</string>
+    <string name="confirm_delete_title">Are you Sure?</string>
+    <string name="yes">Yes, Delete</string>
+    <string name="no">No, Cancel</string>
 
 </resources>
