@@ -21,6 +21,7 @@
     <string name="edit_division">Edit an Existing Division</string>
     <string name="delete_division">Delete an Existing Division</string>
 
+    <string name="to_dashboard">Return to Dashboard</string>
     <string name="name">Name:</string>
     <string name="confirm">Confirm Password:</string>
     <string name="access">Access Level:</string>
